@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column                  | Type      | Options                        |
-| ----------------------- | --------- | ------------------------------ |
-| name                    | string    | null: false                    |
-| description             | text      | null: false                    |
-| category_id             | integer   | null: false                    |
-| condition_id            | integer   | null: false                    |
-| shipping_fee_burden_id  | integer   | null: false                    |
-| origin_to_prefecture_id | integer   | null: false                    |
-| days_to_ship_id         | integer   | null: false                    |
-| price                   | integer   | null: false                    |
-| user                    | reference | null: false, foreign_key: true |
+| Column                  | Type       | Options                        |
+| ----------------------- | ---------- | ------------------------------ |
+| name                    | string     | null: false                    |
+| description             | text       | null: false                    |
+| category_id             | integer    | null: false                    |
+| condition_id            | integer    | null: false                    |
+| shipping_fee_burden_id  | integer    | null: false                    |
+| origin_to_prefecture_id | integer    | null: false                    |
+| days_to_ship_id         | integer    | null: false                    |
+| price                   | integer    | null: false                    |
+| user                    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -39,10 +39,10 @@
 
 ## purchases テーブル
 
-| Column | Type      | Options                        |
-| ------ | --------- | ------------------------------ |
-| item   | reference | null: false, foreign_key: true |
-| user   | reference | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -52,15 +52,15 @@
 
 ## shipping_addresses テーブル
 
-| Column                  | Type      | Options                        |
-| ----------------------- | --------- | ------------------------------ |
-| postal_code             | string    | null: false                    |
-| origin_to_prefecture_id | integer   | null: false                    |
-| city                    | string    | null: false                    |
-| address_number          | string    | null: false                    |
-| building_name           | string    |                                |
-| phone_number            | string    | null: false                    |
-| purchase                | reference | null: false, foreign_key: true |
+| Column                  | Type       | Options                        |
+| ----------------------- | ---------- | ------------------------------ |
+| postal_code             | string     | null: false                    |
+| origin_to_prefecture_id | integer    | null: false                    |
+| city                    | string     | null: false                    |
+| address_number          | string     | null: false                    |
+| building_name           | string     |                                |
+| phone_number            | string     | null: false                    |
+| purchase                | references | null: false, foreign_key: true |
 
 ### Association
 
