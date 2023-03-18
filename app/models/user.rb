@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :nickname, :birth_date, :password_confirmation
-    validates :first_name, :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: 'is invalid. Input full-width characters' }
+    validates :nickname, :birth_date
+    validates :first_name, :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々一]+\z/, message: 'is invalid. Input full-width characters' }
     validates :last_name_kana, :first_name_kana,
               format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters' }
   end
-  validates :password, :password_confirmation,
+  validates :password,
             format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Include both letters and numbers' }
 end
